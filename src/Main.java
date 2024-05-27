@@ -22,10 +22,12 @@ public class Main {
         }
         System.out.println(words.trim().split(" ").length);
     }
-    public static String reverseMethod(String words){
+
+    public static String reverseMethod(String words) {
         return new StringBuilder(words).reverse().toString();
     }
-    public static int checkVowelsElements(String words){
+
+    public static int checkVowelsElements(String words) {
         String lowerCaseWords = words.toLowerCase();
         int count = 0;
         for (int i = 0; i < lowerCaseWords.length(); i++) {
@@ -36,40 +38,46 @@ public class Main {
         }
         return count;
     }
-    public static void printPolindrom(String words){
+
+    public static void printPolindrom(String words) {
         System.out.println(words.trim().equals(reverseMethod(words)));
     }
 
-        public static String removeDuplicateCharacters(String words) {
+    public static String removeDuplicateCharacters(String words) {
         HashSet<Character> set = new HashSet<>();
         String result = "";
-             for (char c : words.toCharArray()){
-                 if (!set.contains(c)) {
-                     result += c;
-                     set.add(c);
-                 }
-             }
-             return result;
-        }
-        public static void changeArrive (String words){
-           String[] change = words.split(" ");
-            System.out.println(Arrays.toString(change));
-        }
-        public static String reverseString (String words){
-            return new StringBuilder(words).reverse().toString();
-        }
-        public static void capitalizeFirstLetter (String words){
-            String[] change = words.split(" ");
-            for (int i = 0; i < change.length; i++) {
-                change[i] = change[i].substring(0,1).toUpperCase() + change[i].substring(1);
+        for (char c : words.toCharArray()) {
+            if (!set.contains(c)) {
+                result += c;
+                set.add(c);
             }
-            System.out.println(Arrays.toString(change));
         }
-    public static boolean areAnagrams(String str1, String str2) {
-        if (str1.length() != str2.length()) {
-            return false;
-        }
-       return true;
+        return result;
     }
 
+    public static void changeArrive(String words) {
+        String[] change = words.split(" ");
+        System.out.println(Arrays.toString(change));
     }
+
+    public static String reverseString(String words) {
+        return new StringBuilder(words).reverse().toString();
+    }
+
+    public static void capitalizeFirstLetter(String words) {
+        String[] change = words.split(" ");
+        for (int i = 0; i < change.length; i++) {
+            change[i] = change[i].substring(0, 1).toUpperCase() + change[i].substring(1);
+        }
+        System.out.println(Arrays.toString(change));
+    }
+
+    public static boolean areAnagrams(String str1, String str2) {
+        char[] chars1 = str1.toCharArray();
+        char[] chars2 = str2.toCharArray();
+        Arrays.sort(chars1);
+        Arrays.sort(chars2);
+        return Arrays.equals(chars1, chars2);
+    }
+
+}
